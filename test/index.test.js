@@ -1,13 +1,9 @@
-/**
- * @jest-environment jsdom
- */
-
-const {
+import {
   addElementToDOM,
   removeElementFromDOM,
   simulateClick,
   handleFormSubmit,
-} = require('../index')
+} from '../index.js'
 
 describe('DOM Testing and User Behavior Simulation', () => {
   beforeEach(() => {
@@ -58,3 +54,12 @@ describe('DOM Testing and User Behavior Simulation', () => {
     expect(errorMessage.classList.contains('hidden')).toBe(false)
   })
 })
+
+export function addElementToDOM(containerId, text) {
+  const container = document.getElementById(containerId)
+  if (container) {
+    const newElement = document.createElement('div')
+    newElement.textContent = text
+    container.appendChild(newElement)
+  }
+}

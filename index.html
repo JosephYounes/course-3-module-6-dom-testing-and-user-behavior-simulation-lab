@@ -18,3 +18,10 @@
   <script src="../index.js"></script>
 </body>
 </html>
+const fs = require('fs');
+const path = require('path');
+
+beforeEach(() => {
+  const html = fs.readFileSync(path.resolve(__dirname, 'index.html'), 'utf8');
+  document.documentElement.innerHTML = html;
+});
